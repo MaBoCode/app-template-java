@@ -13,9 +13,15 @@ import com.example.app_template_java.R;
 import com.example.app_template_java.databinding.FrgSplashscreenBinding;
 import com.example.app_template_java.injects.base.BaseFragment;
 
+import org.androidannotations.annotations.EFragment;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+@EFragment
 public class SplashScreenFragment extends BaseFragment {
 
     protected FrgSplashscreenBinding binding;
@@ -34,5 +40,10 @@ public class SplashScreenFragment extends BaseFragment {
         }, 400);
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void initObservers() {
+
     }
 }
