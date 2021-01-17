@@ -50,7 +50,7 @@ public class MainFragment extends BaseFragment {
     @Override
     public void initObservers() {
 
-        viewModel.usersLiveData.observe(this, new Observer<List<User>>() {
+        viewModel.usersLiveData.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
                 String usersCount = String.format("%s users", users.size());
@@ -63,7 +63,7 @@ public class MainFragment extends BaseFragment {
             }
         });
 
-        viewModel.loadingLiveData.observe(this, new Observer<LoadingStatus>() {
+        viewModel.loadingLiveData.observe(getViewLifecycleOwner(), new Observer<LoadingStatus>() {
             @Override
             public void onChanged(LoadingStatus status) {
                 int visiblity = status == LoadingStatus.LOADING ? View.VISIBLE : View.GONE;
