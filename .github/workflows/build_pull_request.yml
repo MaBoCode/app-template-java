@@ -9,7 +9,7 @@ jobs:
     continue-on-error: true
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Restore Cache
         uses: actions/cache@v2
@@ -28,8 +28,8 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: test-reports
-          path: '**/build/reports/tests/'
+            name: test-reports
+            path: '**/build/reports/tests/'
 
   lint_job:
     name: Lint
