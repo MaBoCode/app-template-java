@@ -49,10 +49,11 @@ def retrofitVersion = '2.9.0'
 def androidMaterialVersion = '1.2.1'
 def androidNavigationVersion = "2.3.2"
 def junitVersion = "4.13.1"
+def androidxTestVersion = "1.1.2"
 
 dependencies {
 
-    // Dependency Injection
+    // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$daggerVersion"
     annotationProcessor "com.google.dagger:hilt-android-compiler:$daggerVersion"
     annotationProcessor 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
@@ -66,7 +67,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
-    // Navigation
+    // Androidx Navigation
     implementation "androidx.navigation:navigation-fragment:$androidNavigationVersion"
     implementation "androidx.navigation:navigation-ui:$androidNavigationVersion"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$androidNavigationVersion"
@@ -74,12 +75,18 @@ dependencies {
     // Android Material Components
     implementation "com.google.android.material:material:$androidMaterialVersion"
 
-    // UI Libs
+    // UI libs
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    // Test Libs
+    // JUnit
     testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+
+    // Androidx Test
+    androidTestImplementation "androidx.test:runner:$androidxTestVersion"
+    androidTestImplementation "androidx.test:core:$androidxTestVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxTestVersion"
+
+    // Espresso
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
