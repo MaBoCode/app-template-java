@@ -17,6 +17,24 @@ buildscript {
 }
 
 allprojects {
+
+    ext.minSdkVersion = 21
+    ext.targetSdkVersion = 30
+    ext.compileSdkVersion = 30
+    ext.buildToolsVersion = "30.0.2"
+
+    def versionMajor = 1
+    def versionMinor = 0
+    def versionPatch = 0
+
+    ext.getVersionCode = { ->
+        return versionMajor * 10000 + versionMinor * 1000 + versionPatch * 10
+    }
+
+    ext.getVersionName = { ->
+        return "$versionMajor.$versionMinor.$versionPatch"
+    }
+
     repositories {
         google()
         jcenter()
