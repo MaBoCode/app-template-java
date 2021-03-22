@@ -57,7 +57,8 @@ public class MainFragment extends BaseFragment {
                 binding.usersCountTxtView.setText(usersCount);
 
                 int randomIndex = (int) (Math.random() * users.size());
-                binding.setUser(users.get(randomIndex));
+                User user = users.get(randomIndex);
+                binding.usernameTxtView.setText(user.username);
 
                 startAnimations();
             }
