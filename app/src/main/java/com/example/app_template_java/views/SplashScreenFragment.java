@@ -1,6 +1,7 @@
 package com.example.app_template_java.views;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,6 @@ import com.example.app_template_java.injects.base.BaseFragment;
 
 import org.androidannotations.annotations.EFragment;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -31,15 +29,19 @@ public class SplashScreenFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FrgSplashscreenBinding.inflate(inflater, container, false);
 
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Navigation.findNavController(binding.getRoot()).navigate(R.id.to_main_fragment);
             }
-        }, 400);
-
-        return binding.getRoot();
+        }, 2500);
     }
 
     @Override
