@@ -1,4 +1,4 @@
-package com.example.app_template_java;
+package com.example.cbplus_test_app;
 
 import android.app.Application;
 

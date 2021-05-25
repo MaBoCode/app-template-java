@@ -1,4 +1,4 @@
-package com.example.app_template_java.views.base;
+package com.example.cbplus_test_app.views.base;
 
 import android.view.View;
 

@@ -1,4 +1,4 @@
-package com.example.app_template_java.views.utils;
+package com.example.cbplus_test_app.views.utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
