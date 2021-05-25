@@ -1,4 +1,4 @@
-package com.example.cbplus_test_app.utils;
+package com.example.app_template_java.utils;
 
 import android.content.Context;
 import android.content.res.Configuration;

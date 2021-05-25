@@ -1,8 +1,4 @@
 <resources>
-    <string name="app_name">cbplus-test-app</string>
+    <string name="app_name">app-template-java</string>
     <string name="splashscreen_title">SplashScreen</string>
-    <string name="gtin_example">00012345600012</string>
-    <string name="date_example">05/25/2021</string>
-    <string name="inventory_title">Inventory</string>
-    <string name="add_product_button_description">Add Product Button</string>
 </resources>
