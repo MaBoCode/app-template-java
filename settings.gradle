@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "cbplus-test-app"
+rootProject.name = "app-template-java"

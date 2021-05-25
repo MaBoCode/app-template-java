@@ -1,4 +1,4 @@
-package com.example.cbplus_test_app.views;
+package com.example.app_template_java.views;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;
 
-import com.example.cbplus_test_app.R;
-import com.example.cbplus_test_app.databinding.FrgSplashscreenBinding;
-import com.example.cbplus_test_app.injects.base.BaseFragment;
+import com.example.app_template_java.R;
+import com.example.app_template_java.databinding.FrgSplashscreenBinding;
+import com.example.app_template_java.injects.base.BaseFragment;
 
 import org.androidannotations.annotations.EFragment;
 

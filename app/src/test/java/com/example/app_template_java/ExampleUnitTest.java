@@ -1,4 +1,4 @@
-package com.example.cbplus_test_app;
+package com.example.app_template_java;
 
 import org.junit.Test;
 

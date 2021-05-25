@@ -1,9 +1,9 @@
-package com.example.cbplus_test_app.views;
+package com.example.app_template_java.views;
 
 import android.os.Bundle;
 
-import com.example.cbplus_test_app.databinding.ActMainBinding;
-import com.example.cbplus_test_app.injects.base.BaseActivity;
+import com.example.app_template_java.databinding.ActMainBinding;
+import com.example.app_template_java.injects.base.BaseActivity;
 
 import org.androidannotations.annotations.EActivity;
 
