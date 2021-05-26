@@ -7,7 +7,6 @@ import android.animation.TimeInterpolator;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class AnimationUtils {
@@ -113,9 +112,13 @@ public class AnimationUtils {
         }
 
         public void start() {
+            List<Animator> animators = getAnimators();
+            animate(animators, duration, delay, interpolator);
+        }
 
+        public List<Animator> getAnimators() {
             List<Animator> animators = new ArrayList<>();
-            for (Object object: objects) {
+            for (Object object : objects) {
                 View view = (View) object;
 
                 ObjectAnimator alpha = null;
@@ -161,19 +164,14 @@ public class AnimationUtils {
                     ObjectAnimator translateX = ObjectAnimator.ofFloat(view, "translationX", translationXBegin, translationXEnd);
                     animators.add(translateX);
                 }
-
             }
-
-            animate(animators, duration, delay, interpolator);
-
+            return animators;
         }
-
     }
 
     public static void animate(List<Animator> animators, long duration, long delay, TimeInterpolator interpolator) {
-        Collection<Animator> animatorCollection = animators;
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(animatorCollection);
+        animatorSet.playTogether(animators);
         animatorSet.setInterpolator(interpolator);
         animatorSet.setDuration(duration);
         animatorSet.setStartDelay(delay);

@@ -1,4 +1,4 @@
-package com.example.app_template_java.views;
+package com.example.app_template_java.views.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,6 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.app_template_java.core.MainFragmentViewModel;
 import com.example.app_template_java.core.user.User;
 import com.example.app_template_java.databinding.FrgMainBinding;
 import com.example.app_template_java.injects.base.BaseFragment;
@@ -36,20 +35,28 @@ public class MainFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        super.onCreateView(inflater, container, savedInstanceState);
+
         binding = FrgMainBinding.inflate(inflater, container, false);
-
-        viewModel = new ViewModelProvider(requireActivity()).get(MainFragmentViewModel.class);
-
-        initObservers();
-
-        viewModel.getUsers();
 
         return binding.getRoot();
     }
 
     @Override
-    public void initObservers() {
+    public void onStart() {
+        super.onStart();
 
+        viewModel.getUsers();
+    }
+
+    @Override
+    public void initViewModels() {
+        viewModel = new ViewModelProvider(this).get(MainFragmentViewModel.class);
+    }
+
+    @Override
+    public void subscribeObservers() {
         viewModel.usersLiveData.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
@@ -67,10 +74,15 @@ public class MainFragment extends BaseFragment {
         viewModel.loadingLiveData.observe(getViewLifecycleOwner(), new Observer<LoadingStatus>() {
             @Override
             public void onChanged(LoadingStatus status) {
-                int visiblity = status == LoadingStatus.LOADING ? View.VISIBLE : View.GONE;
-                binding.loader.setVisibility(visiblity);
+                showHideLoader(requireActivity(), status);
             }
         });
+    }
+
+    @Override
+    public void unsubscribeObservers() {
+        viewModel.usersLiveData.removeObservers(getViewLifecycleOwner());
+        viewModel.loadingLiveData.removeObservers(getViewLifecycleOwner());
     }
 
     public void startAnimations() {

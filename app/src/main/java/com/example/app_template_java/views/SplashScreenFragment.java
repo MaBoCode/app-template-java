@@ -33,19 +33,24 @@ public class SplashScreenFragment extends BaseFragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onStart() {
+        super.onStart();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Navigation.findNavController(binding.getRoot()).navigate(R.id.to_main_fragment);
-            }
-        }, 2500);
+        new Handler().postDelayed(() -> Navigation.findNavController(binding.getRoot()).navigate(R.id.to_main_fragment), 300);
     }
 
     @Override
-    public void initObservers() {
+    public void initViewModels() {
+
+    }
+
+    @Override
+    public void subscribeObservers() {
+
+    }
+
+    @Override
+    public void unsubscribeObservers() {
 
     }
 }

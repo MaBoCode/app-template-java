@@ -1,4 +1,4 @@
-package com.example.app_template_java.views;
+package com.example.app_template_java.views.main;
 
 import android.os.Bundle;
 
@@ -21,5 +21,20 @@ public class MainActivity extends BaseActivity {
 
         binding = ActMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+    }
+
+    @Override
+    public void initViewModels() {
+
+    }
+
+    @Override
+    public void subscribeObservers() {
+
+    }
+
+    @Override
+    public void unsubscribeObservers() {
+
     }
 }
