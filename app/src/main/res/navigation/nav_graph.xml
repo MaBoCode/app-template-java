@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.app_template_java.views.main.MainFragment_"
+        android:name="com.example.app_template_java.views.user.MainFragment_"
         android:label="frg_main"
         tools:layout="@layout/frg_main"/>
 

@@ -1,4 +1,4 @@
-package com.example.app_template_java.views.main;
+package com.example.app_template_java.views;
 
 import android.os.Bundle;
 

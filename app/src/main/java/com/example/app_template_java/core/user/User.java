@@ -1,6 +1,12 @@
 package com.example.app_template_java.core.user;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
+import java.util.Objects;
 
 public class User implements Serializable {
 
@@ -19,6 +25,23 @@ public class User implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(phone, user.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, username, email, phone);
+    }
+
+    @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
@@ -27,5 +50,18 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
+    }
+
+    public static class UserDiff extends DiffUtil.ItemCallback<User> {
+
+        @Override
+        public boolean areItemsTheSame(@NonNull @NotNull User oldItem, @NonNull @NotNull User newItem) {
+            return oldItem.id.equals(newItem.id);
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull @NotNull User oldItem, @NonNull @NotNull User newItem) {
+            return oldItem.equals(newItem);
+        }
     }
 }
