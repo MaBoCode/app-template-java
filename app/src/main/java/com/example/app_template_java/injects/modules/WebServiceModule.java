@@ -1,5 +1,6 @@
 package com.example.app_template_java.injects.modules;
 
+import com.example.app_template_java.core.photo.PhotoService;
 import com.example.app_template_java.core.user.UserService;
 
 import javax.inject.Singleton;
@@ -40,6 +41,12 @@ public class WebServiceModule {
     @Singleton
     public UserService provideUserService(Retrofit retrofit) {
         return retrofit.create(UserService.class);
+    }
+
+    @Provides
+    @Singleton
+    public PhotoService providePhotoService(Retrofit retrofit) {
+        return retrofit.create(PhotoService.class);
     }
 
 }

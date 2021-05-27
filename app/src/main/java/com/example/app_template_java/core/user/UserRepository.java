@@ -16,7 +16,6 @@ public class UserRepository {
     }
 
     public Observable<List<User>> getUsers() {
-        // TODO: cache data
         return userService.getUsers();
     }
 }
