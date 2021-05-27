@@ -35,8 +35,6 @@ public class MainFragmentViewModel extends BaseViewModel {
     protected MutableLiveData<List<Photo>> _photosLiveData = new MutableLiveData<>();
     public LiveData<List<Photo>> photosLiveData = _photosLiveData;
 
-    protected List<Photo> skeletonData;
-
     @Inject
     public MainFragmentViewModel(SavedStateHandle savedStateHandle) {
         this.savedStateHandle = savedStateHandle;
@@ -73,13 +71,5 @@ public class MainFragmentViewModel extends BaseViewModel {
 
     public boolean isLoading() {
         return loadingLiveData.getValue() == LoadingStatus.LOADING;
-    }
-
-    public void setSkeletonData(List<Photo> skeletonData) {
-        this.skeletonData = skeletonData;
-    }
-
-    public void clearSkeletonData() {
-        this.skeletonData.clear();
     }
 }
